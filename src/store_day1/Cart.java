@@ -1,6 +1,7 @@
 package store_day1;
 
-import java.util.ArrayList;
+import java.io.*;
+import java.util.*;
 
 public class Cart {
     protected ArrayList<String> cart;
@@ -8,6 +9,11 @@ public class Cart {
     public Cart(){
         cart = new ArrayList<String>();
     }
+    
+    public ArrayList<String> getCart(){
+        return cart;
+    }
+
 
     public void itemList(){
 
@@ -19,11 +25,16 @@ public class Cart {
             
             System.out.printf("%d. %s\n",idx+1, this.cart.get(idx));
 
-        }
+            }
         }
 
     }
 
+    public void createCart(String item){
+        if(!this.cart.contains(item)){
+            this.cart.add(item);
+        }
+    }
     public void addItem(String item){
         if(!this.cart.contains(item)){
             System.out.printf("%s added to cart \n",item);
@@ -40,6 +51,8 @@ public class Cart {
         else{
             System.out.println("Incorrect item index\n");
         }
+
     }
+    
 }
 
